@@ -10,6 +10,15 @@ Jest has included:
 * stubs
 * code coverage ( out of the box )
 
+**Code sample**
+```javascript
+import { sum } from "utilities";
+
+describe( "adds a with b", () => {
+  const result = sum( 2, 3 );
+  expect( result ).toEqual( 5 )
+} );
+```
 
 **References**
 * [Jest tutorial]
