@@ -25,5 +25,6 @@ describe( "adds a with b", () => {
 * [Official docs]
 
 ## Enzyme
+Is a JavaScript testing utility for React. Enzyme's API is meant to be intuitive and flexible by mimicking jQuery's API for DOM manipulation and traversal.
 
 ## shallow vs mount
