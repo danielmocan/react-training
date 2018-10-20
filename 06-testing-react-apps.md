@@ -60,8 +60,8 @@ describe( "ProductsList", () => {
     } );
     describe( "with no products ", () => {
        const wrapper = shallow( <ProductsList list={emptyList}/> );
-       it( "should contain two Product components", () => {
-            expect( component.find("Product").length ).toEqual( 1 );
+       it( "should not find any Product component", () => {
+            expect( component.find("Product").length ).toEqual( 0 );
         } );
     } );
 } );
