@@ -49,7 +49,7 @@ const emptyList = [];
 
 describe( "ProductsList", () => {
     describe( "with products", () => {
-        const component = shallow( <ProductsList list={products}/> );
+        const wrapper = shallow( <ProductsList list={products}/> );
         it( "renders", () => {
             expect( component.length ).toBe( 1 );
         } );
@@ -59,7 +59,7 @@ describe( "ProductsList", () => {
         } );
     } );
     describe( "with no products ", () => {
-       const component = shallow( <ProductsList list={emptyList}/> );
+       const wrapper = shallow( <ProductsList list={emptyList}/> );
        it( "should contain two Product components", () => {
             expect( component.find("Product").length ).toEqual( 1 );
         } );
