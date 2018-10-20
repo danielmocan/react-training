@@ -25,6 +25,46 @@ describe( "adds a with b", () => {
 * [Official docs]
 
 ## Enzyme
-Is a JavaScript testing utility for React. Enzyme's API is meant to be intuitive and flexible by mimicking jQuery's API for DOM manipulation and traversal.
+Is a JavaScript testing library for React developed by Airbnb. Enzyme API is easy to use and is very similar to jQuery's API for DOM manipulation and traversal.
+To test React components, most of the times you will choose from `shallow` and `mount`.
+Testing a react component that do not have any children its quite easy, because its behaviour can not be affected by one of its children. But most of the react components have children. To better test components as a unit without being afected by its children Enzyme offers `shallow`.
+Example
+```javascript
+import React from "react";
+import ProductsList from "./productsList";
+import { shallow } from "enzyme";
+
+const products = [
+  {
+    name: "Bread",
+    price: "$2"
+  },
+  {
+    name: "Butter",
+    price: "$4"
+  }
+];
+
+const emptyList = [];
+
+describe( "ProductsList", () => {
+    describe( "with products", () => {
+        const component = shallow( <ProductsList list={products}/> );
+        it( "renders", () => {
+            expect( component.length ).toBe( 1 );
+        } );
+
+        it( "should contain two Product components", () => {
+            expect( component.find("Product").length ).toEqual( 2 );
+        } );
+    } );
+    describe( "with no products ", () => {
+       const component = shallow( <ProductsList list={emptyList}/> );
+       it( "should contain two Product components", () => {
+            expect( component.find("Product").length ).toEqual( 1 );
+        } );
+    } );
+} );
+```
 
 ## shallow vs mount
