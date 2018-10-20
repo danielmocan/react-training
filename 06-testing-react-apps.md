@@ -27,6 +27,8 @@ describe( "adds a with b", () => {
 ## Enzyme
 Is a JavaScript testing library for React developed by Airbnb. Enzyme API is easy to use and is very similar to jQuery's API for DOM manipulation and traversal.
 To test React components, most of the times you will choose from `shallow` and `mount`.
+
+### Shallow
 Testing a react component that do not have any children its quite easy, because its behaviour can not be affected by one of its children. But most of the react components have children. To better test components as a unit without being afected by its children Enzyme offers `shallow`.
 Example
 ```javascript
