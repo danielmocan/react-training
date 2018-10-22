@@ -75,6 +75,7 @@ Luckly for us Jest has already JSDOM included, but if use something else with En
 
 
 **References**
-* [Jest tutorial]
-* [Official docs]
+* [Jest tutorial](https://flaviocopes.com/jest/)
+* [Jest - Official docs](https://jestjs.io/)
+* [Enzyme - Official docs](https://airbnb.io/enzyme/)
 * [JSDOM](https://github.com/jsdom/jsdom)
