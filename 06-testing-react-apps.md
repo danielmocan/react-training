@@ -71,7 +71,47 @@ describe( "ProductList", () => {
 
 ### Mount
 There are times when we need to test a component that interacts with the DOM API, for this cases Enzyme offers us another component wrapper called `mount`. The difference between `shallow` and `mount` is that the `mount` wrapper needs to run in a browser like enviroment, mount is also known as Full DOM Rendering. As the name implies it will fully render the DOM tree of the tested component. In order to fully render the component in the tests, we have to use a library like JSDOM. JSDOM is a headless browser implemented in JS.
-Luckly for us Jest has already JSDOM included, but if use something else with Enzyme you may have to added it to your testing setup.
+Luckly for us Jest has already JSDOM included, but if use another test runner with Enzyme you may have to added it to your testing setup.
+
+As you can notice on from the example bellow (with `mount`) there is no difference.
+
+```javascript
+import React from "react";
+import ProductList from "./productList";
+import { mount } from "enzyme";
+
+const products = [
+  {
+    name: "Bread",
+    price: "$2"
+  },
+  {
+    name: "Butter",
+    price: "$4"
+  }
+];
+
+const emptyList = [];
+
+describe( "ProductList", () => {
+    describe( "with products", () => {
+        const wrapper = mount( <ProductList list={products}/> );
+        it( "renders", () => {
+            expect( component.length ).toBe( 1 );
+        } );
+
+        it( "should contain two Product components", () => {
+            expect( component.find("Product").length ).toEqual( 2 );
+        } );
+    } );
+    describe( "with no products ", () => {
+       const wrapper = mount( <ProductList list={emptyList}/> );
+       it( "should not find any Product component", () => {
+            expect( component.find("Product").length ).toEqual( 0 );
+        } );
+    } );
+} );
+```
 
 
 **References**
